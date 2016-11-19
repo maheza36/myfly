@@ -24,7 +24,7 @@ class CitiesController < ApplicationController
     else
       flash[:error] = "Houston we are in troubles, please try new"
     end
-    binding.pry
+    
     redirect_to cities_path
 
   end
