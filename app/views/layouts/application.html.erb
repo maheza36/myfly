@@ -23,6 +23,11 @@
         </ul>
        </div>
     </nav>
+    <% if flash[:success] or flash[:success] or flash[:success]  %>
+      <span class="flash-message <%= flash[:success] ? 'success' : flash[:error] ? 'error' : flash[:notice] ? 'notice' : '' %>">
+
+      </span>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 class="text-center">CITIES</h1>
+</div>
+
+<div class="container">
+  <div class="col-md-offset-4 col-md-4">
+    <section class="row text-center">
+      <a href="<%= new_city_path %>" class="btn btn-primary">NEW CITY</a>
+    </section>
+  </div>
+</div>
+<p></p>
+<!--
+<div class="container">
+  <section>
+    <% @cities.each do |c| %>
+    <ul class="col-sm-4 list-unstyled">
+      <li class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title"><%= c.name %></h2>
+        </div>
+        <ul class="panel-body list-unstyled text-center">
+          <li class="col-sm-3">
+            <%= c.country_name %>
+          </li>
+          <li class="col-sm-3">
+            <%= c.time_zone %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <% end if @cities.any?%>
+  </section>
+</div>
+-->
+
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel panel-heading panel-title">CITIES</div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>CITY</th>
+        <th>COUNTRY</th>
+        <th>TIME ZONE</th>
+      </tr>
+      <% @cities.each do |c| %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.country_name %></td>
+        <td><%= c.time_zone %></td>
+        <td><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger">Delete</a></td>
+      </tr>
+      <% end if @cities.any?%>
+    </table>
+  </div>
+
+</div>

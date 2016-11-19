@@ -14,3 +14,17 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.flash-message{
+  width: 100%;
+  .error{
+    background-color: red;
+  }
+  .success{
+    background-color: yellow;
+  }
+  .notice{
+    background-color: blue;
+  }
+}
