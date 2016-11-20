@@ -24,9 +24,20 @@ class CitiesController < ApplicationController
     else
       flash[:error] = "Houston we are in troubles, please try new"
     end
-    
     redirect_to cities_path
+  end
 
+  def edit
+    @city = City.find_by(id: params[:id])
+  end
+
+  def update
+    @city = City.find_by(id: params[:id])
+    if @city.update_attributes(city_params)
+      redirect_to cities_path
+    else
+      render 'new'
+    end
   end
 
   def city_params

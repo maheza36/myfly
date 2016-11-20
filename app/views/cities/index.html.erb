@@ -52,6 +52,7 @@
         <td><%= c.country_name %></td>
         <td><%= c.time_zone %></td>
         <td><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger">Delete</a></td>
+        <td><a href="<%= edit_city_path(c.id) %>" class="btn btn-warning">Edit</a></td>
       </tr>
       <% end if @cities.any?%>
     </table>

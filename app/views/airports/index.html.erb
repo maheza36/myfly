@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 class="text-center">AIRPORTS</h1>
+</div>
+
+<div class="container">
+  <div class="col-md-offset-4 col-md-4">
+    <section class="row text-center">
+      <a href="<%= new_airport_path %>" class="btn btn-primary">NEW AIRPORT</a>
+    </section>
+  </div>
+</div>
+<p></p>
+
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel panel-heading panel-title">CITIES</div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>NAME</th>
+        <th>CITY</th>
+        <th>COUNTRY</th>
+      </tr>
+      <% @airport.each do |a| %>
+      <tr>
+        <td><%= a.name %></td>
+        <td><%= a.city_name %></td>
+        <td><%= a.country_name%></td>
+        <td><a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger">Delete</a></td>
+        <td><a href="<%= edit_airport_path(a.id) %>" class="btn btn-warning">Edit</a></td>
+      </tr>
+      <% end if @airport.any?%>
+    </table>
+  </div>
+
+</div>
