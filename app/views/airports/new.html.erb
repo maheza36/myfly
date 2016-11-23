@@ -18,10 +18,34 @@
       <%= a.label :name %>
       <%= a.text_field :name, class: "form-control" %>
     </div>
+    <!--
     <div class="form-group">
       <%= a.label :city_id %>
       <%= a.text_field :city_id, class: "form-control" %>
     </div>
+  -->
+
+    <div class="container">
+      <%= a.label :city_id %>
+      <%= a.select(:city_id) do  %>
+        <% @cities.each do |c| -%>
+          <%= content_tag(:option, c.name, value: c.id) %>
+        <% end %>
+      <% end %>
+    </div>
+
+  <!--
+    <div class="container">
+      <label for="city">City</label>
+      <select name="city" id="model_years" required class="form-control">
+         <option value="" disabled selected>Selecciona la ciudad</option>
+         <% @cities.each do |c| %>
+            <option value="<%= c.id %>"> <%= c.name %></option>
+         <% end %>
+      </select>
+    </div>
+  -->
+<p></p>
     <%= a.submit "Create Airport", class:"btn btn-primary" %>
   <% end %>
 </div>
