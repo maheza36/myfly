@@ -10,11 +10,10 @@
   </div>
 </div>
 <p></p>
-
 <div class="container">
   <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel panel-heading panel-title">CITIES</div>
+    <div class="panel panel-heading panel-title">AIRPORTS</div>
 
     <!-- Table -->
     <table class="table">
@@ -22,16 +21,19 @@
         <th>NAME</th>
         <th>CITY</th>
         <th>COUNTRY</th>
+        <th>TIME ZONE</th>
       </tr>
-      <% @airport.each do |a| %>
+      <% @airports.each do |a| %>
       <tr>
         <td><%= a.name %></td>
-        <td><%= a.city_name %></td>
-        <td><%= a.country_name%></td>
+        <td><%= a.city.name %></td>
+        <td><%= a.city.country_name%></td>
+        <td><%= a.city.time_zone%></td>
         <td><a href="<%= airport_path(a.id) %>" data-method="delete" class="btn btn-danger">Delete</a></td>
         <td><a href="<%= edit_airport_path(a.id) %>" class="btn btn-warning">Edit</a></td>
+        <td><a href="<%= airport_path(a.id) %>" class="btn btn-info"> Show </a></td>
       </tr>
-      <% end if @airport.any?%>
+      <% end if @airports.any?%>
     </table>
   </div>
 

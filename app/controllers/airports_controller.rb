@@ -1,50 +1,88 @@
 class AirportsController < ApplicationController
-
   def index
-    #@airport = Airport.all
-    @airport = Airport.select('airports.id','airports.name','cities.name as city_name','cities.country_name as country_name').joins(:city)
+    @airports = Airport.all
+  end
 
+  def show
+    @airport = Airport.find_by(id: params[:id])
+    if @airport.nil?
+      flash[:error] = "Houston we are in troubles, please dont hack us."
+      redirect_to root_path
+    end
   end
 
   def new
-    @cities = City.all
     @airport = Airport.new
+    @cities = City.all
+  end
+
+  def edit
+    @airport = Airport.find_by(id: params[:id])
+    @cities = City.all
+    if @airport.nil?
+      flash[:error] = "Houston we are in troubles, please dont hack us."
+      redirect_to root_path
+    end
   end
 
   def create
     @airport = Airport.new(airport_params)
     if @airport.save
+      flash[:success] = "Airport created. Ok"
       redirect_to airports_path
     else
+      @cities = City.all
       render 'new'
     end
-  end
-
-  def destroy
-    airport = Airport.find_by(id: params[:id])
-    if airport.destroy
-      flash[:success] = "Airport Destroyed Successfully"
-    else
-      flash[:error] = "Houston we are in troubles, please try new"
-    end
-    redirect_to airports_path
-  end
-
-  def edit
-    @airport = Airport.find_by(id: params[:id])
   end
 
   def update
     @airport = Airport.find_by(id: params[:id])
-    if @airport.update_attributes(airport_params)
+    if @airport.update(airport_params)
+      flash[:success] = "Airport created. Ok"
       redirect_to airports_path
     else
-      render 'new'
+      @cities = City.all
+      render 'edit'
     end
   end
+
+  def destroy
+    @airport = Airport.find_by(id: params[:id])
+    if @airport.destroy
+      flash[:success] = "Airport destroyed. Ok"
+    else
+      flash[:error] = "Houston we are in troubles, please dont hack us."
+    end
+    redirect_to airports_path
+  end
+
+  private
 
   def airport_params
     params.require(:airport).permit(:name, :city_id)
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 end

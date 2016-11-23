@@ -14,17 +14,30 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+/*
+@import "cities";
 
+body {
+  background-color: rgba(232, 231, 231, 0.89);
+}
 
-.flash-message{
+.container {
+  background-color: white;
+  border: 1px solid rgba(154, 154, 154, 0.69);
+  min-height: 1000px;
+}
+*/
+.flash-message {
   width: 100%;
-  .error{
-    background-color: red;
-  }
-  .success{
-    background-color: yellow;
-  }
-  .notice{
-    background-color: blue;
-  }
+
+}
+
+.error {
+  background-color: rgba(217, 83, 79, 0.75);
+  color: #d43f3a;
+}
+
+.success{
+  background-color: rgba(44, 178, 10, 0.92);;
+  color: rgb(25, 123, 0);;
 }

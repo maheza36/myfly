@@ -10,29 +10,7 @@
   </div>
 </div>
 <p></p>
-<!--
-<div class="container">
-  <section>
-    <% @cities.each do |c| %>
-    <ul class="col-sm-4 list-unstyled">
-      <li class="panel panel-primary">
-        <div class="panel-heading">
-          <h2 class="panel-title"><%= c.name %></h2>
-        </div>
-        <ul class="panel-body list-unstyled text-center">
-          <li class="col-sm-3">
-            <%= c.country_name %>
-          </li>
-          <li class="col-sm-3">
-            <%= c.time_zone %>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <% end if @cities.any?%>
-  </section>
-</div>
--->
+
 
 <div class="container">
   <div class="panel panel-default">
@@ -51,8 +29,9 @@
         <td><%= c.name %></td>
         <td><%= c.country_name %></td>
         <td><%= c.time_zone %></td>
-        <td><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger">Delete</a></td>
-        <td><a href="<%= edit_city_path(c.id) %>" class="btn btn-warning">Edit</a></td>
+        <td><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></td>
+        <td><a href="<%= edit_city_path(c.id) %>" class="btn btn-primary"> Edit </a></td>
+        <td><a href="<%= city_path(c.id) %>" class="btn btn-info"> Show </a></td>
       </tr>
       <% end if @cities.any?%>
     </table>
