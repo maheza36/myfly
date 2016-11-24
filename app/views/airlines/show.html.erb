@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="text-center">AIRLINES</h1>
+</div>
+<div class="container">
+  <div class="text-center">
+    <a href="<%= airlines_path %>" class="btn btn-primary"> View all </a>
+    <p></p>
+  </div>
+</div>
+<div class="container">
+  <section>
+
+    <ul class="col-sm-6 list-unstyled">
+      <li class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 class="panel-title">Airline</h2>
+        </div>
+        <ul class="panel-body list-unstyled text-center">
+          <li class="col-sm-3">
+            <%= @airlines.name %>
+          </li>
+
+          <li class="col-sm-3">
+            <a href="<%= airline_path(@airlines.id) %>" data-method="delete" class="btn btn-danger"> Delete </a>
+          </li>
+
+        </ul>
+      </li>
+    </ul>
+
+  </section>
+</div>

@@ -63,26 +63,4 @@ class AirportsController < ApplicationController
     params.require(:airport).permit(:name, :city_id)
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

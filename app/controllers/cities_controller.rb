@@ -56,10 +56,6 @@ class CitiesController < ApplicationController
     end
   end
 
-
-
-
-
   private
 
   def find_city
@@ -70,14 +66,6 @@ class CitiesController < ApplicationController
   def city_params
     params.require(:city).permit(:name, :country_name, :time_zone)
   end
-
-
-
-
-
-
-
-
 
 
 end

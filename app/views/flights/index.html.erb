@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="text-center">FLIGHTS</h1>
+</div>
+
+<div class="container">
+  <div class="col-md-offset-4 col-md-4">
+    <section class="row text-center">
+      <a href="<%= new_flight_path %>" class="btn btn-primary">NEW FLIGHT</a>
+    </section>
+  </div>
+</div>
+<p></p>
+
+
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel panel-heading panel-title">FLIGHTS</div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>ORIGIN</th>
+        <th>DESTINATION</th>
+        <th>PERIODICITY</th>
+        <th>PERIODICITY TIME</th>
+        <th>AVG TIME</th>
+        <th>AIRLINE</th>
+      </tr>
+      <% @flights.each do |c| %>
+      <tr>
+        <td><%= c.origin.name %></td>
+        <td><%= c.destination.name %></td>
+        <td><%= c.periodicity %></td>
+        <td><%= c.periodicity_time %></td>
+        <td><%= c.periodicity %></td>
+        <td><%= c.periodicity %></td>
+        <td><a href="<%= city_path(c.id) %>" data-method="delete" class="btn btn-danger"> Delete </a></td>
+        <td><a href="<%= edit_city_path(c.id) %>" class="btn btn-primary"> Edit </a></td>
+        <td><a href="<%= city_path(c.id) %>" class="btn btn-info"> Show </a></td>
+      </tr>
+      <% end if @flights.any?%>
+    </table>
+  </div>
+
+</div>
